@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>下拉菜单</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#nav{
+				background: #ccc;
+				width: 960px;
+				margin: 0 auto;
+				height: 40px;
+			}
+			ul{
+				list-style: none;
+			}
+			ul li{
+				float: left;
+				padding: 0 20px;
+				text-align: center;
+				line-height: 40px;
+				font-family: "微软雅黑";
+			}
+			a{
+				text-decoration: none;color: #000;display: block;padding: 0 20px;
+			}
+			a:hover{
+				background: #930;color: #FFF;
+			}
+			.erji{
+				float: none;background: #CCC;
+			}
+			.erji a:hover{
+				color: #00F;
+				background: #999;
+			}
+			/*.erji_ul{
+				display: none;
+			}
+			ul li:hover .erji_ul{
+				display: block;
+			}*/
+			.text{
+				width:80px;
+				display:inline-block;
+				vertical-align:middle;
+			}
+			.image{
+				width:80px;
+				display:inline-block;
+				vertical-align:middle;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="nav">
+			<ul>
+				<li><a href="#">百度</a>
+					<ul class="erji_ul">
+						<li class="erji"><a href="#">经验</a></li>
+						<li class="erji"><a href="#">经验</a></li>
+					</ul>
+				</li>
+				<li><a href="#">百度</a></li>
+				<li><a href="#">百度</a></li>
+				<li><a href="#">百度</a></li>
+				<li><a href="#">百度</a></li>
+				<li><a href="#">百度</a></li>
+				<li><a href="#">百度</a></li>
+				<li><a href="#">百度</a></li>
+			</ul>
+		</div>
+		
+		<div><div class="text">文字编辑</div><img src=“..\Attachment\3e680542d2a45da586eb90b76a9bfb20_t.jpg”/ class="image"></div>
+	</body>
+</html>

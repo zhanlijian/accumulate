@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+	</head>
+
+	<body>
+		<button id="btn" type="button">Click me!</button>
+
+		<div id="div">
+
+		</div>
+		<button id="btn1">保存</button>
+		<script>
+			var pres = [{
+							"p": "江西省",
+							"c": [{
+									"ct": "南昌市",
+									"d": [
+										{ "dt": "西湖区" },
+										{ "dt": "东湖区" },
+										{ "dt": "高新区" }
+									]
+								},
+								{
+									"ct": "赣州市",
+									"d": [
+										{ "dt": "瑞金县" },
+										{ "dt": "南丰县" },
+										{ "dt": "全南县" }
+									]
+								}
+							]
+						},
+						{
+							"p": "北京",
+							"c": [
+								{ "ct": "东城区" },
+								{ "ct": "西城区" }
+							]
+						},
+						{
+							"p": "河北省",
+							"c": [{
+									"ct": "石家庄",
+									"d": [
+										{ "dt": "长安区" },
+										{ "dt": "桥东区" },
+										{ "dt": "桥西区" }
+									]
+								},
+								{
+									"ct": "唐山市",
+									"d": [
+										{ "dt": "滦南县" },
+										{ "dt": "乐亭县" },
+										{ "dt": "迁西县" }
+									]
+								}
+							]
+						}
+					];
+			$('#btn').click(function() {
+				var str = '';
+				str += '<form>'
+				str += '<div class="selectList">';
+				str += '<select name="pre" id="pre">';
+				str += '<option>pre</option>';
+				str += '<option>请选择</option>';
+				str += '</select>';
+				str += '<select name="city" id="city">';
+
+				str += '<option>请选择</option>';
+				str += '</select>';
+				str += '<select name="area" id="area">';
+
+				str += '<option>请选择</option>';
+				str += '</select>';
+				str += '</div>';
+				str += '</form>'
+				$('#div').append(str);
+				Test();
+			})
+
+			function Test() {
+				$('.selectList:last').each(function() {
+					
+					var temp_html;
+					//var areaJson;
+					var preEle = $(this).find('select[name=pre]');
+					var cityEle = $(this).find('select[name=city]');
+					var areaEle = $(this).find('select[name=area]');
+					var province = function() {
+						$.each(pres, function(i, province) {
+							temp_html += "<option value=''>" + province.p + "</option>";
+						});
+						preEle.html(temp_html);
+						city();
+					};
+					var city = function() {
+						temp_html = "";
+						var n = preEle.get(0).selectedIndex;
+						$.each(pres[n].c, function(i, city) {
+							temp_html += "<option value=''>" + city.ct + "</option>";
+						});
+						cityEle.html(temp_html);
+						district();
+					};
+					var district = function() {
+						temp_html = "";
+						var m = preEle.get(0).selectedIndex;
+						var n = cityEle.get(0).selectedIndex;
+
+						$.each(pres[m].c[n].d, function(i, district) {
+							temp_html += "<option value=''>" + district.dt + "</option>";
+						});
+						areaEle.html(temp_html);
+
+					};
+
+					preEle.on('change', function() {
+						city();
+					});
+					cityEle.on('change', function() {
+						district();
+					});
+					province();
+				})
+			}
+			$('#btn1').on("click",function() {
+				 //function showValues() {
+				     // var str = $(".selectList").serialize();
+				     // $("#div").text(str);
+		    	//}
+				var arr=[];
+				$(".selectList").each(function(){
+					var preEles = $(this).find('select[name=pre]').val();
+					var cityEles = $(this).find('select[name=city]').val();
+					var areaEles = $(this).find('select[name=area]').val();
+				
+				arr.push(preEles+' , '+cityEles+' , '+areaEles);
+				})
+				//alert(1);
+				alert(arr[0]);
+    //$("select").click(showValues);
+    //$("select").change(showValues);
+    			//showValues();
+//				var t = $('form').serializeArray();
+//				$('#div').text(t)
+//				$.each(t, function(i, field) {
+//					alert(field.name + ":" + field.value + " ");
+//					//$('#add').append(field.name + ":" + field.value + " ");
+//				})
+			})
+		</script>
+	</body>
+
+</html>

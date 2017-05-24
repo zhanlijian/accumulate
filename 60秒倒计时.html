@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<input type="button" value="点击获取验证码" />
+		<script type="text/javascript">
+		    var b=document.getElementsByTagName("input")[0]
+		    var s=60
+		    function p(){
+		    	b.value=s--+"后失效" ;
+		    	if(s==0){
+		    	clearInterval(a)	
+		    	b.disabled=""
+		    	b.value="请重新获取验证码"
+		    	}
+		    		
+		    	
+		    }
+		    b.onclick=function(){
+		    	b.disabled="disabled"
+			a=setInterval("p()",1000)
+		    }
+		    
+		</script>
+	</body>
+</html>

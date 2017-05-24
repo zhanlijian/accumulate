@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--作业五：
+		点击发送验证码，60s倒计时-->
+		<input type="button" value="点击发送验证码" />
+		<script>
+			var inps=document.getElementsByTagName("input")[0];
+			var a=10;
+			inps.onclick=function(){
+				
+				var id=setInterval(function(){
+					inps.value=a--+"s后获取验证码"
+					
+				if(a<0){
+					clearInterval(id)
+					inps.value="重新获取验证码"
+				}
+			},1000)
+		}
+		</script>
+	</body>
+</html>

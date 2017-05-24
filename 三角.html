@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.sanjiao{
+				height: 0;
+				width: 0;
+				display: inline-block;
+				border-left: 10px solid transparent;
+				border-right: 10px solid transparent;
+				border-top: 10px solid #108bf3;
+				border-bottom: 10px solid transparent;
+				margin-bottom: ;
+
+			}
+			.sanjiao2{
+				height: 0;
+				width: 0;
+				display: inline-block;
+				border-left: 10px solid transparent;
+				border-right:10px solid transparent;
+				border-top: 10px solid transparent;
+				border-bottom: 10px solid #108bf3;
+				/*position: absolute;*/
+				/*left: 40%;*/
+				/*bottom: -7px;*/
+				display: none;
+
+			}
+			li:hover .sanjiao2{
+				display: block;
+			}
+			li:hover .sanjiao{
+				transform: rotate(720deg);
+				transition: 0.1s;
+			}
+
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<span class="sanjiao2"></span>
+				<span class="sanjiao"></span>
+			</li>
+		</ul>
+		
+		
+	</body>
+</html>

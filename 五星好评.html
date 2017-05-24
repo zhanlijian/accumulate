@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>五星好评</title>
+		<script src="jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#div span{
+				width: 30px;
+				height: 30px;
+				background: darkgray;
+				display: inline-block;
+				margin-left: 2px;
+				background-image: url(star.jpg);
+				background-position: 0 -70px;
+			}
+			.hover{
+				background-position:0 -37px!important;
+			}
+			.active{
+				background-position: 0 -1px!important;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div">
+			<span class="star1"></span>
+			<span class="star2"></span>
+			<span class="star3"></span>
+			<span class="star4"></span>
+			<span class="star5"></span>
+		</div>
+		
+		<script type="text/javascript">
+			$("span").mousemove(function(){
+//////				alert(1);
+//////				$(this).css("background-position","0 -37px");
+				$(this).prevUntil("body").andSelf().addClass("hover");
+			})
+//////			$("span").on("click",function(){
+//			$(this).css("background-position","0 0");
+//			})
+			$("span").mouseout(function(){
+					$(this).prevUntil("body").andSelf().removeClass("hover");
+				})
+			$("span").click(function(){
+////					alert(1);
+////					$(this).prevUntsil($("div")).andSelf().addClass("active");
+					$("span").removeClass("active");
+					$(this).prevUntil($("#div")).andSelf().addClass("active");
+					
+				})
+
+		</script>
+	</body>
+</html>
